@@ -1,0 +1,8 @@
+numpy
+#matplotlib
+torch
+torchvision
+torchaudio
+pandas
+plotly
+tensorflow
