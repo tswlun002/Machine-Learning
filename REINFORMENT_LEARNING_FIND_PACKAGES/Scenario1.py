@@ -113,7 +113,7 @@ class FindPackage:
             self.RewardMatrix[current_state, action] = grid_cell
             return self.RewardMatrix[current_state, action] + 1
 
-    def Q_exploration(self, epoches: int, number_visit: np.array([[int]]), gamma: int = 0.90) -> None:
+    def Q_exploration(self, epoches: int, number_visit: np.array([[int]]), gamma: float = 0.90) -> None:
 
         """
         - We learn the environment until agent get package
@@ -193,14 +193,25 @@ class FindPackage:
         self.QMatrix = np.zeros((self.height, self.width))
         num_visited = np.zeros(self.height)
         self.RewardMatrix = self.reward()
+        bes_epoch = None
+        early_stop = 20
+        best_learning = None
         for epoch in range(1, self.episodes):
             self.Q_exploration(epoch, num_visited)
+            average_states_visit = np.mean(self.QMatrix)
+
+            if best_learning is None or round(average_states_visit, 3) > best_learning:
+                best_learning = round(average_states_visit, 3)
+                bes_epoch = epoch
+            if bes_epoch + early_stop <= epoch:
+                break
             self.fourRoomObject.newEpoch()
+
         return num_visited
 
     def evaluate_agent(self) -> None:
         """
-        - Test our agent after by Exploiting the know information
+        - Test our agent by Exploiting the known information
         """
         self.fourRoomObject.newEpoch()
         self.Q_exploit()
@@ -212,11 +223,14 @@ def main():
     # initialise findPackage
     FindPackageObject = FindPackage(fourRoomsObj)
     # Agent learn
+    print("Started learning ...")
     FindPackageObject.Q_learning()
     # evaluate agent
     FindPackageObject.evaluate_agent()
     # Show Path
     fourRoomsObj.showPath(-1, "./Images/scenario1.png")
+    print("Done !!!")
+    print("Picture saved, check ./Images/scenario1.png")
 
 
 if __name__ == "__main__":
