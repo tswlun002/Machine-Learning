@@ -1,3 +1,21 @@
+ANNs for Image Classification
+
+Designing ANNs that are capable of classifying hand written digits
+from the MNIST10 dataset.
+Use Pytorch and TorchVision Liabrary.
+
+Beacuse common solve problem , i did more than one classification and made report why one is better than the other , see the report pdf in this directory for more information.
+I reported on the following :
+  • The topology of the networks investigated (Including the number of layers, activation
+  functions and connectedness of said layers)
+  • Any preprocessing steps performed on the training set.
+  • The loss function(s) used.
+  • Any optimizer(s) that were used.
+  • How the networks are trained / validated
+  • How you determined which ANN performed the best and why that was the case.
+  • Any other miscellaneous details that you feel are relevant to your ANNs.
+
+
 Build virtual environment command:  $ make
 Activate virtual environment: $ source ./venv/bin/activate
 
