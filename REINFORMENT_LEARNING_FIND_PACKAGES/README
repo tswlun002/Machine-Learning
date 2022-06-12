@@ -14,12 +14,7 @@ These packages are marked as red (R), green (G) and blue (B) and your agent
 must collect them in that order. Collecting a package in the wrong order will terminate a
 simulation epoch early.
 
-For each of scenarios, add a ’–stochastic’ optional flag that a user may specify on
-program execution. This will make the actions space stochastic such that when an Agent
-takes an action, there is a 20% chance that the agent may instead move to a different grid
-cell than anticipated.
-Can make each scenario use a stochastic action space by setting stochastic = True
-when creating your FourRooms object.
+Use Make file for Running program.
 
 
 
