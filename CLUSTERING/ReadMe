@@ -1,4 +1,8 @@
-I have one file for submission called Cluster.py
+Write my own clusting k-mean algorithm that uses no changes in centriods as stopping condition
+
+It Cluster datapoints to certain centriod
+
+
 
 In the Cluster.py i created a class called Cluster and two static fanctions 
   - first function is  output_into_file() , takes one arguments the list contain ouput data
